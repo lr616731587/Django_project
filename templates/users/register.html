@@ -1,8 +1,11 @@
-{% extends 'base/base_user.html' %}
-{% block title %}
-注册
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %}注册页面{% endblock %}
+{% block link %}
+      <link rel="stylesheet" href="../../static/css/authPro/auth.css">
 {% endblock %}
-{% block container %}
+
+{% block main %}
 <main id="container">
   <div class="register-contain">
     <div class="top-contain">
@@ -11,7 +14,7 @@
     </div>
     <form action="" method="post" class="form-contain">
 
-
+{#        {% csrf_token %}#}
       <div class="form-item">
         <input type="text" placeholder="请输入用户名" id="user_name" name="username" class="form-control" autocomplete="off">
       </div>
@@ -27,7 +30,7 @@
       <div class="form-item">
         <input type="text" placeholder="请输入图形验证码" id="input_captcha" name="captcha_graph" class="form-captcha">
         <a href="javascript:void(0);" class="captcha-graph-img">
-          <img src="../../static/images/captcha.png" alt="验证码" title="点击刷新">
+          <img src="" alt="验证码" title="点击刷新">
         </a>
       </div>
       <div class="form-item">
@@ -40,5 +43,9 @@
     </form>
   </div>
 </main>
+{% endblock %}
+
+{% block script %}
+  <script src="{% static 'js/users/auth.js' %}"></script>
 {% endblock %}
 

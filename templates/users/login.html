@@ -1,13 +1,18 @@
-{% extends 'base/base_user.html' %}
+{% extends 'base/base.html' %}
+{% load static %}
 {% block title %}登录{% endblock %}
-{% block container %}
+{% block link %}
+  <link rel="stylesheet" href="../../static/css/authPro/auth.css">
+{% endblock %}
+{% block main %}
 <main id="container">
   <div class="login-contain">
     <div class="top-contain">
       <h4 class="please-login">请登录</h4>
-      <a href="javascript:void(0);" class="register">立即注册 &gt;</a>
+      <a href="{% url 'users:register' %}" class="register">立即注册 &gt;</a>
     </div>
     <form action="" method="post" class="form-contain">
+{#        {% csrf_token %}#}
       <div class="form-item">
         <input type="tel" placeholder="请输入手机号" name="telephone" class="form-control" autocomplete="off">
       </div>
@@ -27,5 +32,8 @@
     </form>
   </div>
 </main>
+{% endblock %}
+{% block script %}
+    <script src="{% static 'js/users/login.js' %}"></script>
 {% endblock %}
 

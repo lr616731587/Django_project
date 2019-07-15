@@ -15,10 +15,16 @@ Including another URLconf
 """
 # from django.contrib import admin
 from django.urls import path, include
+from Django_project import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
-    path('news/', include('news.urls')),
+    path('', include('news.urls')),
+    path('', include('verifications.urls')),
     path('users/', include('users.urls')),
     # path('register/', include('users.urls')),
-]
+    path('doc/', include('doc.urls')),
+    path('course/', include('course.urls')),
+    path('admin/', include('admin.urls')),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)  # 指定根目录
